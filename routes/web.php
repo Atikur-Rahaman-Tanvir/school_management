@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', 'App\Http\Controllers\dashboardController@dashboard');
+Auth::routes(['register' => false]);
+
+Route::get('/', 'App\Http\Controllers\dashboardController@dashboard')->name('dashboard')->middleware('auth');
+
+
+
+
 

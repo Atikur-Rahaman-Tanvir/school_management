@@ -35,6 +35,7 @@
 
 
     @include('layouts.partial.js')
+    @yield('scripts')
 </body>
 
 </html>
