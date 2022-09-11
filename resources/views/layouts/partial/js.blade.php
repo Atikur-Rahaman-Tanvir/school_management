@@ -1,7 +1,7 @@
 
 
-
-    {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+{{--
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script> --}}
                <script src="{{ asset('assets') }}/js/jquery-3.5.1.min.js"></script>
 
@@ -18,12 +18,14 @@
     <script src="{{ asset('assets') }}/js/chart.js"></script>
 
 
-    <script src="{{ asset('assets') }}/js/jquery.dataTables.min.js"></script>
-    <script src="{{ asset('assets') }}/js/dataTables.bootstrap4.min.js"></script>
+    {{-- <script src="{{ asset('assets') }}/js/jquery.dataTables.min.js"></script>
+    <script src="{{ asset('assets') }}/js/dataTables.bootstrap4.min.js"></script> --}}
     <script src="{{ asset('assets') }}/js/moment.min.js"></script>
     <script src="{{ asset('assets') }}/js/bootstrap-datetimepicker.min.js"></script>
 
     <script src="{{ asset('assets') }}/js/select2.min.js"></script>
     <script src="{{ asset('assets') }}/js/multiselect.min.js"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
     <script src="{{ asset('assets') }}/js/app.js"></script>
