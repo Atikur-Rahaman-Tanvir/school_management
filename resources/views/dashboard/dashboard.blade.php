@@ -2,9 +2,7 @@
 @section('title')
     Dashboard
 @endsection
-<<<<<<< HEAD
 
-=======
 @section('styles')
     <style>
         .eaBhby {
@@ -38,7 +36,7 @@
         }
     </style>
 @endsection
->>>>>>> setup
+
 @section('content')
     <div class="content container-fluid">
         <div class="row">
@@ -87,12 +85,11 @@
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
 
 
     </div>
-@endsection
-=======
+
+
         <div class="row">
             <div class="col-md-12 ">
                 <div class="card">
@@ -147,6 +144,5 @@
         </div>
     </div>
 @endsection
-@section('scripts')
-@endsection
->>>>>>> setup
+
+
