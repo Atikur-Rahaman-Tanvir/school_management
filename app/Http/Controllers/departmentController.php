@@ -29,13 +29,13 @@ class departmentController extends Controller
         // if ($validator->fails()) {
         //     return response()->json(['errors' => $validator->errors()]);
         // }
-        //  else {
+
             $department = new Department();
             $department->department_name = $request->department_name;
             $department->save();
             return response()->json(['success' => 'New Department Added Successfully!']);
-        // }
-    
+
+
     }
 
     //show

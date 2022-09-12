@@ -93,7 +93,7 @@
                                 <a href="{{route('class.index')}}" style="position:relative;" class="sc-gPEVay eaBhby border rounded  ">
                                     <div style=""><i
                                             style="background:rgba(255, 155, 68, 0.2); color: #ff9b44;padding: 10px; border-radius: 40px;"
-                                            class="fa fa-home fa-4x"></i></div>
+                                            class="fa fa-home fa-3x"></i></div>
                                     <div style="margin-top:8px " class="shortcuts-title  text-black">Classes</div>
                                 </a>
                             </div>
@@ -101,7 +101,7 @@
                                 <a href="{{route('department.index')}}" style="position:relative;" class="sc-gPEVay eaBhby border rounded  ">
                                     <div style=""><i
                                             style="background:rgba(255, 155, 68, 0.2); color: #ff9b44;padding: 10px; border-radius: 40px;"
-                                            class="fa fa-home fa-4x"></i></div>
+                                            class="fa fa-cubes fa-3x"></i></div>
                                     <div style="margin-top:8px " class="shortcuts-title  text-black">Department</div>
                                 </a>
                             </div>
@@ -109,8 +109,24 @@
                                 <a href="{{route('tutionfees.index')}}" style="position:relative;" class="sc-gPEVay eaBhby border rounded  ">
                                     <div style=""><i
                                             style="background:rgba(255, 155, 68, 0.2); color: #ff9b44;padding: 10px; border-radius: 40px;"
-                                            class="fa fa-money fa-4x"></i></div>
+                                            class="fa fa-money fa-3x"></i></div>
                                     <div style="margin-top:8px " class="shortcuts-title  text-black">Tution Fees</div>
+                                </a>
+                            </div>
+                            <div class="col-md-2">
+                                <a href="{{route('exam.index')}}" style="position:relative;" class="sc-gPEVay eaBhby border rounded  ">
+                                    <div style=""><i
+                                            style="background:rgba(255, 155, 68, 0.2); color: #ff9b44;padding: 10px; border-radius: 40px;"
+                                            class="fa fa-edit fa-3x"></i></div>
+                                    <div style="margin-top:8px " class="shortcuts-title  text-black">All Exam</div>
+                                </a>
+                            </div>
+                            <div class="col-md-2">
+                                <a href="{{route('subject.index')}}" style="position:relative;" class="sc-gPEVay eaBhby border rounded  ">
+                                    <div style=""><i
+                                            style="background:rgba(255, 155, 68, 0.2); color: #ff9b44;padding: 10px; border-radius: 40px;"
+                                            class="fa fa-book fa-3x"></i></div>
+                                    <div style="margin-top:8px " class="shortcuts-title  text-black">All Subject</div>
                                 </a>
                             </div>
 

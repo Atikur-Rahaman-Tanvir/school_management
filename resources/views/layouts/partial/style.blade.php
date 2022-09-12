@@ -18,5 +18,4 @@
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
-
 <link rel="stylesheet" href="{{ asset('assets') }}/css/style.css">
