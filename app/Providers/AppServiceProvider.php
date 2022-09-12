@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\ClassModel;
+use App\Models\TutionFees;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +26,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+
+        View::share('classes', ClassModel::all());
+        View::share('tutions', TutionFees::latest()->orderBy('fees_name', 'ASC')->get());
     }
 }

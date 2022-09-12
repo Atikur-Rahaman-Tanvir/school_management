@@ -3,8 +3,8 @@
 
     <!-- Logo -->
     <div class="header-left">
-        <a href="index.html" class="logo">
-            <img src="assets/img/logo.png" width="40" height="40" alt="">
+        <a href="{{route('dashboard')}}" class="logo">
+            <img src="{{asset('assets')}}/img/logo.png" width="40" height="40" alt="">
         </a>
     </div>
     <!-- /Logo -->
