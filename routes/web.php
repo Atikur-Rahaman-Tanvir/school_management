@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\classController;
 use App\Http\Controllers\departmentController;
+use App\Http\Controllers\tutionFeesh;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -36,6 +37,11 @@ Route::group(['prefix' => 'department', 'as' => 'department.'], function(){
     Route::get('delete', [departmentController::class, 'delete'])->name('delete');
 });
 
+Route::group(['prefix' => 'tutionfees', 'as' => 'tutionfees.'],function () {
+Route::get('index', [tutionFeesh::class, 'index'])->name('index');
+Route::post('store', [tutionFeesh::class, 'store'])->name('store');
+Route::get('remove', [tutionFeesh::class, 'remove'])->name('remove');
+});
 
 
 
