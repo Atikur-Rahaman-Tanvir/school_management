@@ -85,11 +85,6 @@
                 </div>
             </div>
         </div>
-
-
-    </div>
-
-
         <div class="row">
             <div class="col-md-12 ">
                 <div class="card">
@@ -97,7 +92,8 @@
                         <h3 class="card-title">Set Up</h3>
                         <div class="row">
                             <div class="col-md-2">
-                                <a href="{{route('class.index')}}" style="position:relative;" class="sc-gPEVay eaBhby border rounded  ">
+                                <a href="{{ route('class.index') }}" style="position:relative;"
+                                    class="sc-gPEVay eaBhby border rounded  ">
                                     <div style=""><i
                                             style="background:rgba(255, 155, 68, 0.2); color: #ff9b44;padding: 10px; border-radius: 40px;"
                                             class="fa fa-home fa-3x"></i></div>
@@ -105,7 +101,8 @@
                                 </a>
                             </div>
                             <div class="col-md-2">
-                                <a href="{{route('department.index')}}" style="position:relative;" class="sc-gPEVay eaBhby border rounded  ">
+                                <a href="{{ route('department.index') }}" style="position:relative;"
+                                    class="sc-gPEVay eaBhby border rounded  ">
                                     <div style=""><i
                                             style="background:rgba(255, 155, 68, 0.2); color: #ff9b44;padding: 10px; border-radius: 40px;"
                                             class="fa fa-cubes fa-3x"></i></div>
@@ -113,7 +110,8 @@
                                 </a>
                             </div>
                             <div class="col-md-2">
-                                <a href="{{route('tutionfees.index')}}" style="position:relative;" class="sc-gPEVay eaBhby border rounded  ">
+                                <a href="{{ route('tutionfees.index') }}" style="position:relative;"
+                                    class="sc-gPEVay eaBhby border rounded  ">
                                     <div style=""><i
                                             style="background:rgba(255, 155, 68, 0.2); color: #ff9b44;padding: 10px; border-radius: 40px;"
                                             class="fa fa-money fa-3x"></i></div>
@@ -121,7 +119,8 @@
                                 </a>
                             </div>
                             <div class="col-md-2">
-                                <a href="{{route('exam.index')}}" style="position:relative;" class="sc-gPEVay eaBhby border rounded  ">
+                                <a href="{{ route('exam.index') }}" style="position:relative;"
+                                    class="sc-gPEVay eaBhby border rounded  ">
                                     <div style=""><i
                                             style="background:rgba(255, 155, 68, 0.2); color: #ff9b44;padding: 10px; border-radius: 40px;"
                                             class="fa fa-edit fa-3x"></i></div>
@@ -129,7 +128,8 @@
                                 </a>
                             </div>
                             <div class="col-md-2">
-                                <a href="{{route('subject.index')}}" style="position:relative;" class="sc-gPEVay eaBhby border rounded  ">
+                                <a href="{{ route('subject.index') }}" style="position:relative;"
+                                    class="sc-gPEVay eaBhby border rounded  ">
                                     <div style=""><i
                                             style="background:rgba(255, 155, 68, 0.2); color: #ff9b44;padding: 10px; border-radius: 40px;"
                                             class="fa fa-book fa-3x"></i></div>
@@ -142,7 +142,6 @@
                 </div>
             </div>
         </div>
+       
     </div>
 @endsection
-
-
