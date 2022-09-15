@@ -11,13 +11,13 @@ class classController extends Controller
     //index
     public function index()
     {
-        $classes = ClassModel::all();
-        return view('class.index', compact('classes'));
+        return view('class.index');
     }
 
     //store
     public function store(Request $request)
     {
+        // return response()->json(['test' => $request->all()]);
         $validator = Validator::make($request->all(), [
             'class_name' => 'required|unique:class_models,class_name',
             'total_seat' => 'required',
@@ -27,7 +27,11 @@ class classController extends Controller
             $class = new ClassModel();
             $class->class_name = $request->class_name;
             $class->total_seat = $request->total_seat;
+            if($request->is_admission == 1){
+                $class->is_admission = '1';
+            }
             $class->save();
+            $class->departments()->attach($request->departments);
             return response()->json(['success' => 'Class Added Successfully!']);
         } else {
             return response()->json(['errors' => $validator->errors()]);
@@ -37,13 +41,20 @@ class classController extends Controller
     //show
     public function show(Request $request)
     {
-        $class = ClassModel::find($request->id);
-        return response()->json(['class' => $class]);
+         $class = ClassModel::find($request->id);
+        $departments = [];
+        foreach($class->departments as $department){
+        $departments[] = $department->id;
+
+        }
+        return response()->json(['class' => $class, 'departments' => $departments]);
+
     }
 
     //update
     public function update(Request $request)
     {
+
         $validator = Validator::make($request->all(), [
             'class_name' => 'required',
             'total_seat' => 'required',
@@ -52,7 +63,13 @@ class classController extends Controller
             $class = ClassModel::find($request->edit_id);
             $class->class_name = $request->class_name;
             $class->total_seat = $request->total_seat;
+            if ($request->is_admission == 1) {
+                $class->is_admission = '1';
+            }else{
+                $class->is_admission = '0';
+            }
             $class->save();
+            $class->departments()->sync($request->departments);
             return response()->json(['success' => 'Updated Successfully!']);
         } else {
             return response()->json(['errors' => $validator->errors()]);

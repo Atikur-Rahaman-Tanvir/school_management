@@ -110,8 +110,8 @@
 
                         <div class="form-group">
                             <label>Select Class <span class="text-danger">*</span></label>
-                            <select class="select select2-hidden-accessible" name="ClassModel_id" id="ClassModel_id"
-                                data-select2-id="select2-data-4-tqno" tabindex="-1" aria-hidden="true">
+                            <select class="form-control" name="ClassModel_id" id="ClassModel_id"
+                           >
                                 <option value="">Select Class</option>
                                 @foreach ($classes as $class)
                                     <option value="{{ $class->id }}">{{ $class->class_name }}</option>

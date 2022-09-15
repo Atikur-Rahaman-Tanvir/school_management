@@ -13,18 +13,19 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tution_fees', function (Blueprint $table) {
+        Schema::create('admissions', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('ClassModel_id');
+            $table->unsignedBigInteger('class_model_id');
             $table->unsignedBigInteger('department_id')->nullable();
-            $table->string('fees_name');
-            $table->string('amount');
-            $table->foreign('ClassModel_id')->references('id')->on('class_models')->onDelete('cascade');
+            $table->year('admission_year');
+            $table->bigInteger('student_id');
+            $table->bigInteger('student_roll');
+            $table->string('admitted_by');
+            $table->foreign('class_model_id')->references('id')->on('class_models')->onDelete('cascade');
             $table->foreign('department_id')->references('id')->on('departments')->onDelete('cascade');
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -32,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tution_fees');
+        Schema::dropIfExists('admissions');
     }
 };

@@ -13,11 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('class_models', function (Blueprint $table) {
+        Schema::create('guardians', function (Blueprint $table) {
             $table->id();
-            $table->string('class_name');
-            $table->integer('total_seat');
-            $table->integer('is_admission')->default('0');
+              $table->unsignedBigInteger('admission_id');
+              $table->string('guardian_name');
+              $table->string('guardian_phone_number');
+             $table->foreign('admission_id')->references('id')->on('admissions')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('class_models');
+        Schema::dropIfExists('guardians');
     }
 };

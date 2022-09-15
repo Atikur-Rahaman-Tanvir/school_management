@@ -35,6 +35,8 @@
             font-weight: bolder;
         }
     </style>
+
+    <link rel="stylesheet" href="{{ asset('assets') }}/css/multi-select.css">
 @endsection
 
 @section('content')
@@ -97,7 +99,7 @@
                                     <div style=""><i
                                             style="background:rgba(255, 155, 68, 0.2); color: #ff9b44;padding: 10px; border-radius: 40px;"
                                             class="fa fa-home fa-3x"></i></div>
-                                    <div style="margin-top:8px " class="shortcuts-title  text-black">Classes</div>
+                                    <div style="margin-top:15px " class="shortcuts-title  text-black">Classes</div>
                                 </a>
                             </div>
                             <div class="col-md-2">
@@ -106,7 +108,7 @@
                                     <div style=""><i
                                             style="background:rgba(255, 155, 68, 0.2); color: #ff9b44;padding: 10px; border-radius: 40px;"
                                             class="fa fa-cubes fa-3x"></i></div>
-                                    <div style="margin-top:8px " class="shortcuts-title  text-black">Department</div>
+                                    <div style="margin-top:15px " class="shortcuts-title  text-black">Department</div>
                                 </a>
                             </div>
                             <div class="col-md-2">
@@ -115,7 +117,7 @@
                                     <div style=""><i
                                             style="background:rgba(255, 155, 68, 0.2); color: #ff9b44;padding: 10px; border-radius: 40px;"
                                             class="fa fa-money fa-3x"></i></div>
-                                    <div style="margin-top:8px " class="shortcuts-title  text-black">Tution Fees</div>
+                                    <div style="margin-top:15px " class="shortcuts-title  text-black">Tution Fees</div>
                                 </a>
                             </div>
                             <div class="col-md-2">
@@ -124,7 +126,7 @@
                                     <div style=""><i
                                             style="background:rgba(255, 155, 68, 0.2); color: #ff9b44;padding: 10px; border-radius: 40px;"
                                             class="fa fa-edit fa-3x"></i></div>
-                                    <div style="margin-top:8px " class="shortcuts-title  text-black">All Exam</div>
+                                    <div style="margin-top:15px " class="shortcuts-title  text-black">All Exam</div>
                                 </a>
                             </div>
                             <div class="col-md-2">
@@ -133,7 +135,16 @@
                                     <div style=""><i
                                             style="background:rgba(255, 155, 68, 0.2); color: #ff9b44;padding: 10px; border-radius: 40px;"
                                             class="fa fa-book fa-3x"></i></div>
-                                    <div style="margin-top:8px " class="shortcuts-title  text-black">All Subject</div>
+                                    <div style="margin-top:15px " class="shortcuts-title  text-black">All Subject</div>
+                                </a>
+                            </div>
+                            <div class="col-md-2">
+                                <a href="{{ route('admission.index') }}" style="position:relative;"
+                                    class="sc-gPEVay eaBhby border rounded  ">
+                                    <div style=""><i
+                                            style="background:rgba(255, 155, 68, 0.2); color: #ff9b44;padding: 10px; border-radius: 40px;"
+                                            class="fa fa-university fa-3x"></i></div>
+                                    <div style="margin-top:15px " class="shortcuts-title  text-black">Admission</div>
                                 </a>
                             </div>
 
@@ -142,6 +153,11 @@
                 </div>
             </div>
         </div>
-       
     </div>
+@endsection
+@section('scripts')
+    <script src="{{ asset('assets') }}/js/jquery.multi-select.js"></script>
+    <script>
+        $('#my-select').multiSelect()
+    </script>
 @endsection

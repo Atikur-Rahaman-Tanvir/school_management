@@ -13,11 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('class_models', function (Blueprint $table) {
+        Schema::create('class_model_department', function (Blueprint $table) {
             $table->id();
-            $table->string('class_name');
-            $table->integer('total_seat');
-            $table->integer('is_admission')->default('0');
+            $table->unsignedBigInteger('class_model_id');
+            $table->unsignedBigInteger('department_id');
+            $table->foreign('class_model_id')->references('id')->on('class_models')->onDelete('cascade');
+            $table->foreign('department_id')->references('id')->on('departments')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('class_models');
+        Schema::dropIfExists('class_model_department');
     }
 };

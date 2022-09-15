@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\AdmissionController;
 use App\Http\Controllers\classController;
 use App\Http\Controllers\departmentController;
 use App\Http\Controllers\ExamController;
 use App\Http\Controllers\subjectController;
 use App\Http\Controllers\tutionFeesh;
+use App\Models\Admission;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -68,4 +70,15 @@ Route::group(['prefix' => 'subject', 'as' => 'subject.'], function () {
     Route::post('update', [subjectController::class, 'update'])->name('update');
     Route::get('delete', [subjectController::class, 'delete'])->name('delete');
     Route::get('search', [subjectController::class, 'search'])->name('search');
+});
+
+Route::group(['prefix' => 'admission', 'as' => 'admission.'], function () {
+    Route::get('index', [AdmissionController::class, 'index'])->name('index');
+    Route::post('store', [AdmissionController::class, 'store'])->name('store');
+    Route::get('show', [AdmissionController::class, 'show'])->name('show');
+    Route::post('update', [AdmissionController::class, 'update'])->name('update');
+    Route::get('delete', [AdmissionController::class, 'delete'])->name('delete');
+    Route::get('search', [AdmissionController::class, 'search'])->name('search');
+
+    Route::get('show/department', [AdmissionController::class, 'show_department'])->name('show_department');
 });

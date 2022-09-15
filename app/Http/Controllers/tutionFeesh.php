@@ -20,17 +20,32 @@ class tutionFeesh extends Controller
         $fees_name = $request->fees_name;
         $amount = $request->amount;
         $ClassModel_id = $request->class_id;
-        $data = [];
-        for ($i=0; $i<count($fees_name); $i++) {
-            $data= [
-                'fees_name' => $fees_name[$i],
-                'amount' => $amount[$i],
-                'ClassModel_id' => $ClassModel_id[$i],
-            ];
-            DB::table('tution_fees')->insert($data);
+        $department_id = $request->department_id;
+        if($department_id){
+            $data = [];
+            for ($i=0; $i<count($fees_name); $i++) {
+                $data= [
+                    'fees_name' => $fees_name[$i],
+                    'amount' => $amount[$i],
+                    'ClassModel_id' => $ClassModel_id[$i],
+                    'department_id' => $department_id[$i],
+                ];
+                DB::table('tution_fees')->insert($data);
 
+            }
+            return response()->json(['success' => 'data insert_successfully!', 'class_id' => $ClassModel_id[0],'department_id'=>$department_id[0]]);
+        }else{
+            $data = [];
+            for ($i = 0; $i < count($fees_name); $i++) {
+                $data = [
+                    'fees_name' => $fees_name[$i],
+                    'amount' => $amount[$i],
+                    'ClassModel_id' => $ClassModel_id[$i],
+                ];
+                DB::table('tution_fees')->insert($data);
+            }
+            return response()->json(['success' => 'data insert_successfully!', 'class_id' => $ClassModel_id[0]]);
         }
-        return response()->json(['success' => 'data insert_successfully!', 'class_id' => $ClassModel_id[0]]);
 
     }
 

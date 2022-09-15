@@ -2,9 +2,11 @@
 @section('title')
     All Class
 @endsection
+@section('styles')
+    <link rel="stylesheet" href="{{ asset('assets') }}/css/multi-select.css">
+@endsection
 @section('content')
     <div class="content container-fluid">
-
         <div class="page-header">
             <div class="row align-items-center">
                 <div class="col">
@@ -24,12 +26,14 @@
         <div class="row">
             <div class="col-md-12">
                 <div>
-                    <table id="data_table" class="table table-striped custom-table mb-0 datatable">
+                    <table id="data_table" class="table table-striped custom-table mb-0 datatable text-center">
                         <thead>
                             <tr>
                                 <th style="width: 30px;">#</th>
                                 <th>Class Name</th>
                                 <th>Total Seat</th>
+                                <th>Is Admission</th>
+                                <th>Group</th>
                                 <th class="text-end">Action</th>
                             </tr>
                         </thead>
@@ -39,6 +43,22 @@
                                     <td>{{ $loop->index + 1 }}</td>
                                     <td>{{ $class->class_name }}</td>
                                     <td>{{ $class->total_seat }}</td>
+                                    <td>
+                                        @if ($class->is_admission == '1')
+                                            YES
+                                            @else
+                                            NO
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if ($class->departments->count() == 0)
+                                            <span>-</span>
+                                            @else
+                                            @foreach ($class->departments as $department )
+                                                <span class="badge bg-primary">{{$department->department_name}}</span>
+                                            @endforeach
+                                        @endif
+                                    </td>
                                     <td class="text-end">
                                         <div class="dropdown dropdown-action">
                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown"
@@ -88,10 +108,24 @@
                         <div class="form-group">
                             <label>Total Seat <span class="text-danger">*</span></label>
                             <input class="form-control" type="number" name="total_seat" id="total_seat">
-
                             <span class="text-danger error total_seat_error"></span>
-
                         </div>
+
+                        <div class="form-group">
+                        <input type="checkbox" id="is_admission" name="is_admission" value="1">
+                        <label for="is_admission">Is Admission</label><br>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Select Department <span class="text-danger">*</span></label>
+                            <select multiple="multiple" id="department_select" name="departments[]">
+                            @foreach ($departments as $department)
+                                    <option value="{{$department->id}}">{{$department->department_name}}</option>
+                                @endforeach
+                            </select>
+                        <span class="text-danger error departments_error"></span>
+                        </div>
+
                         <div class="submit-section">
                             <button class="btn btn-primary submit-btn">Submit</button>
                         </div>
@@ -125,10 +159,25 @@
                         <div class="form-group">
                             <label>Total Seat <span class="text-danger">*</span></label>
                             <input class="form-control" type="number" name="total_seat" id="edit_total_seat">
-
                             <span class="text-danger error  total_seat_error"></span>
-
                         </div>
+                         <div class="form-group">
+                        <input class="edit_is_admission" type="checkbox" id="edit_is_admission" name="is_admission" value="1">
+                        <label for="edit_is_admission">Is Admission</label><br>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Select Department <span class="text-danger">*</span></label>
+                            <select multiple="multiple" id="edit_departments_select" class="departments"
+                                name="departments[]">
+                                @foreach ($departments as $department)
+                                    <option value="{{ $department->id }}" >{{ $department->department_name }}</option>
+                                @endforeach
+
+                            </select>
+                            <span class="text-danger error departments_error"></span>
+                        </div>
+
                         <div class="submit-section">
                             <button class="btn btn-primary submit-btn">Submit</button>
                         </div>
@@ -167,6 +216,7 @@
 @endsection
 
 @section('scripts')
+    <script src="{{ asset('assets') }}/js/jquery.multi-select.js"></script>
     <script>
         $(document).ready(function() {
             $.ajaxSetup({
@@ -174,6 +224,8 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
+            $('#department_select').multiSelect();
+            $('#edit_departments_select').multiSelect();
             // insert data
             $('#insert_form').submit(function(e) {
                 e.preventDefault();
@@ -186,10 +238,10 @@
                     contentType: false,
                     processData: false,
                     success: function(response) {
+                        console.log(response);
                         if (response.success) {
                             $('#insert').modal('hide');
-                            $('#insert').find('input').val('');
-                            $('.error').text('');
+                            $('#insert_form')[0].reset();
                             toastr.success(response.success);
                             $('#data_table').load(location.href + ' #data_table');
                         }
@@ -216,8 +268,14 @@
                         'id': id
                     },
                     success: function(response) {
+                        console.log(response);
                         $('#edit_class_name').val(response.class.class_name);
                         $('#edit_total_seat').val(response.class.total_seat);
+                        if(response.class.is_admission == '1'){
+                           $('.edit_is_admission').attr('checked', true);
+                        }else{
+                               $('.edit_is_admission').attr('checked', false);
+                        }
                     }
                 });
             });
@@ -270,8 +328,8 @@
                         'id': id
                     },
                     success: function(response) {
-                            $('#delete').modal('hide');
-                            $('#delete').find('input').val('');
+                        $('#delete').modal('hide');
+                        $('#delete').find('input').val('');
                         toastr.success(response.success);
                         $('#data_table').load(location.href + ' #data_table');
                     }
