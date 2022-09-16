@@ -147,7 +147,15 @@
                                     <div style="margin-top:15px " class="shortcuts-title  text-black">Admission</div>
                                 </a>
                             </div>
-                      
+                                  <div class="col-md-2">
+                                <a href="{{ route('attendance.index') }}" style="position:relative;"
+                                    class="sc-gPEVay eaBhby border rounded  ">
+                                    <div style=""><i
+                                            style="background:rgba(255, 155, 68, 0.2); color: #ff9b44;padding: 10px; border-radius: 40px;"
+                                            class="fa fa-clock-o fa-3x"></i></div>
+                                    <div style="margin-top:15px " class="shortcuts-title  text-black">Attendance</div>
+                                </a>
+                            </div>
 
                         </div>
                     </div>

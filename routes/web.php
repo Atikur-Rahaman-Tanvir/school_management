@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdmissionController;
+use App\Http\Controllers\attendanceController;
 use App\Http\Controllers\classController;
 use App\Http\Controllers\departmentController;
 use App\Http\Controllers\ExamController;
@@ -79,6 +80,20 @@ Route::group(['prefix' => 'admission', 'as' => 'admission.'], function () {
     Route::post('update', [AdmissionController::class, 'update'])->name('update');
     Route::get('delete', [AdmissionController::class, 'delete'])->name('delete');
     Route::get('search', [AdmissionController::class, 'search'])->name('search');
-
     Route::get('show/department', [AdmissionController::class, 'show_department'])->name('show_department');
+});
+
+Route::group(['prefix' => 'attendance', 'as' => 'attendance.'], function () {
+    Route::get('index', [attendanceController::class, 'index'])->name('index');
+    Route::post('store', [attendanceController::class, 'store'])->name('store');
+    Route::get('show', [attendanceController::class, 'show'])->name('show');
+    Route::post('update', [attendanceController::class, 'update'])->name('update');
+    Route::get('delete', [attendanceController::class, 'delete'])->name('delete');
+    Route::get('search', [attendanceController::class, 'search'])->name('search');
+    Route::get('show/department', [attendanceController::class, 'show_department'])->name('show_department');
+
+
+    Route::post('take', [attendanceController::class, 'take_attendance'])->name('take');
+
+    
 });

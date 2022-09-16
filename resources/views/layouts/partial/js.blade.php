@@ -22,8 +22,8 @@
 <script src="{{ asset('assets') }}/js/moment.min.js"></script>
 <script src="{{ asset('assets') }}/js/bootstrap-datetimepicker.min.js"></script>
 
-{{-- <script src="{{ asset('assets') }}/js/select2.min.js"></script> --}}
-{{-- <script src="{{ asset('assets') }}/js/multiselect.min.js"></script> --}}
+<script src="{{ asset('assets') }}/js/select2.min.js"></script>
+<script src="{{ asset('assets') }}/js/multiselect.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.14/js/bootstrap-multiselect.min.js">
 </script>
 
