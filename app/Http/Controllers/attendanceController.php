@@ -86,6 +86,44 @@ class attendanceController extends Controller
             return response()->json(['success' => 'Attendance Complete']);
         }
     }
+
+    //show attendance
+    public function show_attendance(){
+        $data = DB::table("attendances")->select(
+
+            DB::raw('student_id as student'),
+            DB::raw('group_concat(attendance ORDER BY date) as atten'),
+            DB::raw('group_concat(date ORDER BY date) as date_att')
+        )->whereYear('date', '2022')
+        ->whereMonth('date', '09')
+        ->where('class_model_id', '50')
+        ->groupBy('student_id')
+        ->orderBy('date', 'ASC')
+        ->get();
+
+        return view('attendance.show_attendance', compact('data'));
+
+    //    return $orders = Attendance::select(
+    //         DB::raw("student_id as student"),
+    //         DB::raw('group_concat(attendance ORDER BY date) as atten'),
+    //         DB::raw('group_concat(date ORDER BY date) as date'),
+
+    //         // DB::raw('sum(product_quentity) as product_quentity'),
+    //         // DB::raw('sum(purchasing_total) as purchasing_total'),
+    //         // DB::raw('sum(grand_total ) as grand_total '),
+    //     )->where('class_model_id', '50')->whereMonth('created_at', Carbon::now()->month)->whereYear('created_at', Carbon::now()->year)->orderBy('date', 'ASC')->groupBy('student')->get();
+
+
+
+        // $empatts = EmpAttendance::where(function ($query) use ($request) {
+
+        //         if (!empty($request->from_date)) {
+        //             $query->whereBetween('att_date', [$request->from_date, $request->to_date]);
+        //         }
+        //     })->orderBy('created_at', 'asc')->get();
+
+
+    }
 }
 
 

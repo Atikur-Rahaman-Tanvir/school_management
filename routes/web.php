@@ -95,5 +95,10 @@ Route::group(['prefix' => 'attendance', 'as' => 'attendance.'], function () {
 
     Route::post('take', [attendanceController::class, 'take_attendance'])->name('take');
 
-    
+
+    Route::get('show', [attendanceController::class, 'show_attendance'])->name('show');
+
+
+
+
 });
